@@ -4,8 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.lab_week_11_a"
-    compileSdk = 36
+
+    buildFeatures {
+        viewBinding = true
+        namespace = "com.example.lab_week_11_a"
+        compileSdk = 36
+    }
 
     defaultConfig {
         applicationId = "com.example.lab_week_11_a"
@@ -42,6 +46,13 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation("com.google.guava:guava:31.1-android")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.datastore:datastore-preferences:1.0.0") {
+        exclude(group = "com.google.guava", module = "listenablefuture")
+    }
+    implementation(libs.androidx.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
